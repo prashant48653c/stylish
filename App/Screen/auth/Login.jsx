@@ -1,9 +1,9 @@
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 
 
 const Login = () => {
 return (
-<View style={{ borderWidth: 1, borderColor: "blue", height: "100%", width: "100%", paddingLeft: 15, paddingRight: 15 }}>
+<View style={{ height: "100%", width: "100%", paddingLeft: 15, paddingRight: 15 }}>
 <View style={{
 width: 189,
 height: 83,
@@ -26,7 +26,7 @@ textAlign: "justify"
 <View style={{ marginTop: 36, display: "flex", gap: 31 }}>
 
 <View style={{
-maxWidth: 317,
+maxWidth: "100%",
 height: 55,
 flexShrink: 0,
 backgroundColor: '#F3F3F3',
@@ -52,7 +52,7 @@ marginRight: 3
 </View>
 
 <View style={{
-maxWidth: 317,
+maxWidth: "100%",
 height: 55,
 flexShrink: 0,
 backgroundColor: '#F3F3F3',
@@ -79,19 +79,17 @@ marginRight: 11
 
 <TextInput style={{
 color: '#676767',
-width: 68
-
-
+flex: 1
 
 }} placeholder={'Password'} />
 
 
 
-<View style={{ display: "flex", alignItems: "flex-end", marginLeft: 150 }}>
+<View style={{ alignContent: "flex-end" }}>
 <Image style={{
 width: 20,
 height: 20,
-marginRight: 16
+
 }} source={require('../../../assets/icons/eye.png')} />
 
 </View>
@@ -116,29 +114,75 @@ fontStyle: 'normal',
 
 
 </View>
-<TouchableOpacity style={{ display: 'flex',
-    maxWidth: 317,
-    height: "fit-content",
-    paddingVertical: 21,
-    paddingHorizontal: 109,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  
-    borderRadius: 4,
-    backgroundColor: '#F83758',
-    flexShrink: 0,
-    marginTop:76
-    }} > 
-<Text style={{color: '#FFF',
-    fontFamily: 'mon',
-    fontSize: 20,
-    fontStyle: 'normal',
-    fontWeight: 600,
- 
-     }}>Login</Text>
-</TouchableOpacity> 
+<TouchableOpacity style={{
+display: 'flex',
+maxWidth: "100%",
+height: 53,
+display: 'flex',
+
+justifyContent: 'center',
+alignItems: 'center',
+flexDirection: 'row',
+
+
+borderRadius: 4,
+backgroundColor: '#F83758',
+flexShrink: 0,
+marginTop: 76
+}} >
+<Text style={{
+color: '#FFF',
+fontFamily: 'mon',
+fontSize: 20,
+fontStyle: 'normal',
+fontWeight: 600,
+
+}}>Login</Text>
+</TouchableOpacity>
+
+
+
+
+<View style={{ display: 'flex', alignItems: 'center' }}>
+<Text style={styles.lastText} >- OR Continue with -</Text>
+<View>
+<View style={{ display: "flex", flexDirection: 'row', gap: 10, justifyContent: "center",marginTop:20 }}>
+
+<View style={styles.image}>
+<Image style={{
+width: 24,
+height: 24,
+
+
+
+}} source={require('../../../assets/icons/google 1.png')} />
+</View>
+
+<View style={styles.image}>
+<Image style={{
+width: 24,
+height: 24,
+
+
+
+}} source={require('../../../assets/icons/apple 1.png')} />
+</View>
+
+<View style={styles.image}>
+<Image style={{
+width: 24,
+height: 24,
+
+
+
+}} source={require('../../../assets/icons/facebook-app-symbol 1.png')} />
+</View>
+
+</View>
+
+<Text style={styles.lastText} >Create An Account <Text style={{color: "#F83758",paddingRight:5 }}>Sign Up</Text> </Text>
+</View>
+</View>
 
 
 </View>
@@ -146,3 +190,27 @@ fontStyle: 'normal',
 }
 
 export default Login
+
+const styles = StyleSheet.create({
+continueWith: {
+marginTop: 75,
+display: 'flex',
+alignItems: 'center',
+gap: 20
+},
+image: {
+borderRadius: 333,
+padding: 15,
+borderRadius: 33,
+
+backgroundColor: '#FCF3F6',
+borderWidth: 1,
+borderColor: '#F83758',
+},
+lastText: {
+fontFamily: 'mon',
+fontSize: 14,
+marginTop:29,
+color: '#575757'
+}
+});

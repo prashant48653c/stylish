@@ -4,6 +4,7 @@ import Home1 from './App/Screen/Home1';
 import Home2 from './App/Screen/Home2';
 import { useFonts } from 'expo-font';
 import Login from './App/Screen/auth/Login';
+import Create from './App/Screen/auth/Create';
 
 
 export default function App() {
@@ -21,7 +22,8 @@ export default function App() {
     <View style={styles.container}>
      {/* <Home1/> */}
      {/* <Home2/> */}
-     <Login/>
+     {/* <Login/> */}
+     <Create/>
       <StatusBar style="auto" />
     </View>
   );
