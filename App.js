@@ -5,6 +5,8 @@ import Home2 from './App/Screen/Home2';
 import { useFonts } from 'expo-font';
 import Login from './App/Screen/auth/Login';
 import Create from './App/Screen/auth/Create';
+import Forget from './App/Screen/auth/Forget';
+import Welcome from './App/Screen/welcome/Welcome';
 
 
 export default function App() {
@@ -12,20 +14,33 @@ export default function App() {
     'mon': require('./App/font/Montserrat-Regular.ttf'),
     'monbold': require('./App/font/Montserrat-Bold.ttf'),
 
-   
 
-    
+
+
 
   });
 
   return (
-    <View style={styles.container}>
-     {/* <Home1/> */}
-     {/* <Home2/> */}
-     {/* <Login/> */}
-     <Create/>
+    <>
+      {/* <View style={styles.container}> */}
+        
+        {/* <Home1/> */}
+        {/* <Home2/> */}
+        {/* <Login/> */}
+        {/* <Create/> */}
+        {/* <Forget/> */}
+
+
+
+      
+      {/* </View > */}
+      <View style={styles.welcome} >
+        <Welcome />
+      </View>
+
       <StatusBar style="auto" />
-    </View>
+    </>
+
   );
 }
 
@@ -33,9 +48,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    height:"100%",
-    width:"100%",
-    paddingTop:30,
-    paddingHorizontal:17
+    height: "100%",
+    width: "100%",
+    paddingTop: 30,
+    paddingHorizontal: 17
+  },
+  welcome: {
+    flex: 1,
+    backgroundColor: '#fff',
+    height: "100%",
+    width: "100%",
+
   },
 });

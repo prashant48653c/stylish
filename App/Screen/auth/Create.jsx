@@ -7,7 +7,7 @@ return (
 <View style={{
 width: 189,
  
-flexShrink: 0,
+ 
 marginTop: 9,
 
 }}>
@@ -18,7 +18,7 @@ fontSize: 36,
 fontStyle: 'normal',
 fontWeight: 700,
 lineHeight: 43,
-textAlign: "justify"
+textAlign: "left"
 }}>Create an Account</Text>
 </View>
 
@@ -51,6 +51,7 @@ marginRight: 3
 
 </View>
 
+ 
 <View style={{
 maxWidth: "100%",
 height: 55,
@@ -94,26 +95,84 @@ height: 20,
 
 </View>
 
+
+
+
+
+ 
+
+</View>
+
+{/* new wala */}
+
+<View style={{
+maxWidth: "100%",
+height: 55,
+flexShrink: 0,
+backgroundColor: '#F3F3F3',
+borderWidth: 1,
+borderColor: '#A8A8A9',
+borderRadius: 10,
+display: "flex",
+flexDirection: "row",
+alignItems: "center",
+
+
+paddingHorizontal: 15,
+paddingVertical: 15,
+position: "relative"
+
+
+}} >
+<Image style={{
+width: 16,
+height: 20,
+marginRight: 11
+}} source={require('../../../assets/icons/lock.png')} />
+
+
+<TextInput style={{
+color: '#676767',
+flex: 1
+
+}} placeholder={'Confirm Password'} />
+
+
+
+<View style={{ alignContent: "flex-end" }}>
+<Image style={{
+width: 20,
+height: 20,
+
+}} source={require('../../../assets/icons/eye.png')} />
+
+</View>
+
+
+
+
+
 <View style={{
 position: "absolute",
-top: 59,
-right: 1
+top: 69,
+left: 1
 }} >
 
 <Text style={{
-color: '#F83758',
-textAlign: 'center',
+color: '#676767',
+textAlign: 'left',
 fontFamily: 'mon',
 fontSize: 12,
 fontWeight: 500,
 fontStyle: 'normal',
-}}>Forgot Password?</Text></View>
+maxWidth:250
+}}>By clicking the <Text style={{color:'#FF4B26'}} >Register</Text> button, you agree to the public offer</Text></View>
+
+</View>
 
 </View>
 
 
-
-</View>
 <TouchableOpacity style={{
 display: 'flex',
 maxWidth: "100%",
@@ -137,7 +196,7 @@ fontSize: 20,
 fontStyle: 'normal',
 fontWeight: 600,
 
-}}>Login</Text>
+}}>Create Account</Text>
 </TouchableOpacity>
 
 
