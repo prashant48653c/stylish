@@ -7,6 +7,7 @@ import Login from './App/Screen/auth/Login';
 import Create from './App/Screen/auth/Create';
 import Forget from './App/Screen/auth/Forget';
 import Welcome from './App/Screen/welcome/Welcome';
+import Feed from './App/Screen/feeds/Feed';
 
 
 export default function App() {
@@ -22,6 +23,8 @@ export default function App() {
 
   return (
     <>
+
+    {/* Authentication  */}
       {/* <View style={styles.container}> */}
         
         {/* <Home1/> */}
@@ -34,11 +37,24 @@ export default function App() {
 
       
       {/* </View > */}
-      <View style={styles.welcome} >
+
+      {/* Welcome Section */}
+      {/* <View style={styles.welcome} >
         <Welcome />
+        <StatusBar style="light" />
+      </View> */}
+
+      {/* Feed section */}
+      <View >
+        <Feed />
+        <StatusBar style="dark" />
+
+
       </View>
 
-      <StatusBar style="auto" />
+
+
+     
     </>
 
   );
@@ -60,4 +76,5 @@ const styles = StyleSheet.create({
     width: "100%",
 
   },
+ 
 });

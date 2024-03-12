@@ -8,15 +8,11 @@ const Welcome = () => (
   <View style={styles.container}>
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
 
-    <LinearGradient
-      colors={['rgba(0, 0, 0, 0.00)', 'rgba(0, 0, 0, 0.63)']}
-      locations={[0, 0.2367]}
-      style={styles.backgroundGradient}
-    >
+  
     <View style={{display:'flex',alignItems:'center',width:315,justifyContent:'flex-end',height:"100%"}} >
 <Text style={{ color: '#FFF',
     textAlign: 'center',
-    fontFamily: 'mon',
+    fontFamily: 'monbold',
     fontSize: 34,
   
    
@@ -42,7 +38,7 @@ const Welcome = () => (
    }} >Get Started</Text>
     </Pressable>
 </View>
-    </LinearGradient>
+   
 
 
 
