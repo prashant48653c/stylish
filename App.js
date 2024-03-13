@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Home1 from './App/Screen/Home1';
 import Home2 from './App/Screen/Home2';
 import { useFonts } from 'expo-font';
@@ -22,7 +22,7 @@ export default function App() {
   });
 
   return (
-    <>
+    <SafeAreaView>
 
     {/* Authentication  */}
       {/* <View style={styles.container}> */}
@@ -47,15 +47,15 @@ export default function App() {
       {/* Feed section */}
       <View >
         <Feed />
-        <StatusBar style="dark" />
+      
 
 
       </View>
 
 
-
+      <StatusBar  backgroundColor='white' style='dark' />
      
-    </>
+    </SafeAreaView>
 
   );
 }
