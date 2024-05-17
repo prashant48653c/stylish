@@ -1,8 +1,13 @@
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { useNavigation } from "@react-navigation/native";
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Button } from "react-native-paper";
+ 
 
 
 const Create = () => {
+  const navigation=useNavigation()
 return (
+    <ScrollView  style={styles.containerView} >
 <View style={{ height: "100%", width: "100%", paddingLeft: 15, paddingRight: 15 }}>
 <View style={{
 width: 189,
@@ -239,12 +244,15 @@ height: 24,
 
 </View>
 
-<Text style={styles.lastText} >Create An Account <Text style={{color: "#F83758",paddingRight:5 }}>Sign Up</Text> </Text>
+<Text style={styles.lastText} >Already have an account? <Text style={{color: "#F83758",paddingRight:5 }}><Button onPress={()=>navigation.navigate('login')} textColor="red" title='Sign In' />
+  
+ </Text> </Text>
 </View>
 </View>
 
 
 </View>
+</ScrollView>
 )
 }
 
@@ -257,6 +265,14 @@ display: 'flex',
 alignItems: 'center',
 gap: 20
 },
+containerView: {
+    flex: 1,
+    backgroundColor: '#fff',
+    
+    width: "100%",
+    paddingTop: 30,
+    paddingHorizontal: 17
+  },
 image: {
 borderRadius: 333,
 padding: 15,
@@ -270,6 +286,8 @@ lastText: {
 fontFamily: 'mon',
 fontSize: 14,
 marginTop:29,
-color: '#575757'
+color: '#575757',
+display:'flex',
+alignItems:'center'
 }
 });

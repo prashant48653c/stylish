@@ -1,11 +1,11 @@
 import React from 'react'
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 
-const ItemCount = () => {
+const ItemCount = ({text}) => {
   return (
     <View style={styles.container}>
         <View>
-        <Text style={{fontSize:18,fontFamily:'mon',fontWeight:'600'}} >All Featured</Text>
+        <Text style={{fontSize:18,fontFamily:'mon',fontWeight:'600'}} >{text}</Text>
         </View>
 
 

@@ -15,7 +15,7 @@ const Feed = () => {
     <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal:16,backgroundColor:'#F9F9F9',height:'100%'}}>
  <Nav/>
  <Search/>
- <ItemCount/> 
+ <ItemCount text={"All Featured"} /> 
  <CategoryCircle/>
  <Poster/>
  <Banner mainText={'Deal of the Day'} lowText={'22h 55m 20s remaining'} bgCol={'#4392F9'} />

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Home1 from './App/Screen/Home1';
 import Home2 from './App/Screen/Home2';
 import { useFonts } from 'expo-font';
@@ -8,6 +8,16 @@ import Create from './App/Screen/auth/Create';
 import Forget from './App/Screen/auth/Forget';
 import Welcome from './App/Screen/welcome/Welcome';
 import Feed from './App/Screen/feeds/Feed';
+import Wish from './App/Screen/wishlist/Wish';
+import Detail from './App/Screen/Detail/Detail';
+import Checkout from './App/Screen/checkout/Checkout';
+import Success from './App/components/Success';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { PaperProvider } from 'react-native-paper';
+import { name as appName } from './app.json';
+
+
 
 
 export default function App() {
@@ -20,55 +30,69 @@ export default function App() {
 
 
   });
-
+  const Stack = createNativeStackNavigator();
   return (
+    <PaperProvider>
+      
+    <NavigationContainer>
+       <Stack.Navigator   screenOptions={{headerShown: false}} >
+       <Stack.Screen name="success" component={Success} />
+
+       
+       
+  
+        
+        <Stack.Screen name="Home1" component={Home1} />
+        <Stack.Screen name="Home2" component={Home2} />
+  <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="create" component={Create} />
+        <Stack.Screen name="forget" component={Forget} />
+
+ 
+ 
+       
+        <Stack.Screen name="welcome" component={Welcome} />
+        <Stack.Screen name="feed" component={Feed} />
+        <Stack.Screen name="wish" component={Wish} />
+        <Stack.Screen name="check" component={Checkout} />
+        <Stack.Screen name="detail" component={Detail} />
+
+
+
+      </Stack.Navigator>
     <SafeAreaView>
 
     {/* Authentication  */}
-      {/* <View style={styles.container}> */}
-        
-        {/* <Home1/> */}
-        {/* <Home2/> */}
-        {/* <Login/> */}
-        {/* <Create/> */}
-        {/* <Forget/> */}
-
-
-
       
-      {/* </View > */}
 
       {/* Welcome Section */}
       {/* <View style={styles.welcome} >
         <Welcome />
         <StatusBar style="light" />
-      </View> */}
+      </View>  
 
       {/* Feed section */}
-      <View >
-        <Feed />
       
-
-
+      <View >
+        {/* <Feed /> */}
+        {/* <Wish /> */}
+        {/* <Checkout/> */}
+        {/* <Success/> */}
+        {/* <Detail/> */}
       </View>
 
-
+ 
       <StatusBar  backgroundColor='white' style='dark' />
      
     </SafeAreaView>
 
+    </NavigationContainer>
+    </PaperProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    height: "100%",
-    width: "100%",
-    paddingTop: 30,
-    paddingHorizontal: 17
-  },
+
   welcome: {
     flex: 1,
     backgroundColor: '#fff',
@@ -78,3 +102,5 @@ const styles = StyleSheet.create({
   },
  
 });
+
+AppRegistry.registerComponent(appName, () => Main);
