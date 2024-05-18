@@ -1,9 +1,12 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const ProductCard = ({item}) => {
-  
+  const navigation=useNavigation()
   return (
+    <TouchableOpacity onPress={()=>navigation.navigate('detail')} >
+    
     <View style={styles.container} >
  <Image style={{ borderRadius: 7,  }} source={require('../../assets/feed/shoe.png')} />
 
@@ -19,6 +22,7 @@ const ProductCard = ({item}) => {
        
        </View>
     </View>
+    </TouchableOpacity>
   )
 }
 

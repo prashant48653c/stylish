@@ -1,10 +1,17 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+ 
 
 const image = require('../../../assets/welcome/wel.png');
 
-const Welcome = () => (
+
+const Welcome = () => {
+  
+  const navigator=useNavigation()
+  return(
+ 
+  
   <View style={styles.container}>
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
 
@@ -18,7 +25,7 @@ const Welcome = () => (
    
     letterSpacing: 0.34,}}>You want Authentic, here you go!</Text>
     <Text style={{color:'#F2F2F2',paddingTop:14}} >Find it here, buy it now!</Text>
-    <Pressable style={{ display: 'flex',
+    <Pressable onPress={()=>navigator.navigate('login')} style={{ display: 'flex',
     width: 279,
     height: 55,
     borderRadius: 4,
@@ -47,8 +54,9 @@ const Welcome = () => (
 
 
   </View>
+  
 );
-
+}
 export default Welcome
 
 const styles = StyleSheet.create({

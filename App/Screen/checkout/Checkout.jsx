@@ -2,13 +2,55 @@ import { View, Text, ScrollView, TextInput, Image, TouchableOpacity } from 'reac
 import React from 'react'
 import ProductContainer from '../../components/ProductContainer'
 import Nav from '../../components/Nav'
+import { useNavigation } from '@react-navigation/native'
+import { FlatList } from 'react-native'
+import CheckItem from '../../components/CheckItem'
 
 export default function Checkout() {
+  const navigation=useNavigation()
+  let DATA=[
+    {
+      img:'',
+      title:"Women's dress",
+
+      price:'$122',
+      size:'3V',
+      count:1
+    },
+    {
+      img:'',
+      title:"Women's Pant",
+
+      price:'$122',
+      size:'3V',
+      count:1
+    },{
+      img:'',
+      title:"Shoe dress",
+      price:'$122',
+      size:'3V',
+      count:1
+    },
+  ]
+
+
+
+
+
+
+
+
+
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal:16,backgroundColor:'#F9F9F9',height:'100%'}}>
  <Nav/>
       <Text style={{fontSize:20,marginBottom:16}} >Your List</Text>
- <ProductContainer/>
+ 
+ <FlatList keyExtractor={item =>item.title} data={DATA} renderItem={(item)=>{
+  return(
+    <CheckItem item={item} />
+  )
+ }} />
  <Text style={{fontSize:20,marginTop:16}} >Your Total: $3500</Text>
 
 
@@ -101,7 +143,7 @@ marginRight: 3
 </View>
  
 
-<TouchableOpacity style={{
+<TouchableOpacity onPress={()=>navigation.navigate('success')} style={{
 display: 'flex',
 maxWidth: "100%",
 height: 53,
@@ -115,7 +157,7 @@ flexDirection: 'row',
 borderRadius: 4,
 backgroundColor: '#F83758',
 flexShrink: 0,
-marginTop:20
+marginVertical:20
  
 }} >
 <Text style={{

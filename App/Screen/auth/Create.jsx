@@ -6,6 +6,9 @@ import { Button } from "react-native-paper";
 
 const Create = () => {
   const navigation=useNavigation()
+  const handleSignUp=()=>{
+    navigation.navigate('feed')
+  }
 return (
     <ScrollView  style={styles.containerView} >
 <View style={{ height: "100%", width: "100%", paddingLeft: 15, paddingRight: 15 }}>
@@ -171,14 +174,14 @@ fontSize: 12,
 fontWeight: 500,
 fontStyle: 'normal',
 maxWidth:250
-}}>By clicking the <Text style={{color:'#FF4B26'}} >Register</Text> button, you agree to the public offer</Text></View>
+}}>By clicking the <Text style={{color:'#FF4B26'}} >Create Account</Text> button, you agree to the public offer</Text></View>
 
 </View>
 
 </View>
 
 
-<TouchableOpacity style={{
+<TouchableOpacity  onPress={handleSignUp} style={{
 display: 'flex',
 maxWidth: "100%",
 height: 53,
@@ -244,9 +247,23 @@ height: 24,
 
 </View>
 
-<Text style={styles.lastText} >Already have an account? <Text style={{color: "#F83758",paddingRight:5 }}><Button onPress={()=>navigation.navigate('login')} textColor="red" title='Sign In' />
-  
- </Text> </Text>
+<View>
+
+
+<View style={styles.lastText}> 
+ <Text style={{fontSize:14}} >Already have an account?</Text>
+
+ <TouchableOpacity style={{alignItems:"center",}} onPress={()=>navigation.navigate('login')}>
+ <Text style={{color: "red",paddingRight:5,alignItems:'center',fontWeight:600,textAlign:'center' }} >SignUp</Text>
+ 
+ </TouchableOpacity>
+ 
+ 
+ 
+ 
+ 
+ </View>
+ </View>
 </View>
 </View>
 
@@ -283,11 +300,13 @@ borderWidth: 1,
 borderColor: '#F83758',
 },
 lastText: {
-fontFamily: 'mon',
-fontSize: 14,
-marginTop:29,
-color: '#575757',
-display:'flex',
-alignItems:'center'
+  fontFamily: 'mon',
+  fontSize: 14,
+   flexDirection:'row',
+   alignItems:'center',
+  color: '#575757',
+  gap:4,
+  marginTop:20,
+  justifyContent:'center'
 }
 });

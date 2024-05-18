@@ -25,7 +25,7 @@ const ProductContainer = () => {
     return (
     
  <FlatList  horizontal={true} keyExtractor={(item, index) => index.toString()} data={datas} showsHorizontalScrollIndicator={false} renderItem={({item:item})=>{return(
-    <ProductCard item={item}/>
+    <ProductCard  item={item}/>
 
  )
         }} />

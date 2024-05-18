@@ -1,7 +1,9 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 
-const Banner = ({mainText,lowText,bgCol}) => {
+const Banner = ({mainText,lowText,bgCol,btn}) => {
+  const navigation=useNavigation()
   return (
     <View style={[styles.container,{backgroundColor:`${bgCol}`}]}>
                 <View  >
@@ -9,7 +11,7 @@ const Banner = ({mainText,lowText,bgCol}) => {
                     <Text style={styles.text} >{lowText} </Text>
 
                 </View>
-                <Pressable style={styles.btn}><Text style={styles.btnText}>Shop Now</Text>
+                <Pressable onPress={()=>navigation.navigate('wish')} style={styles.btn}><Text style={styles.btnText}>{btn || "Shop Now" }</Text>
     <Image source={require('../../assets/feed/arrow.png')} />
     </Pressable>
     </View>

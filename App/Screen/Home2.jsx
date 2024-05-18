@@ -1,27 +1,33 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const Home2 = () => {
 
 const [step, setStep] = useState(1)
-
-const addStep=()=>{
-    if(step < 3){
-        setStep(step + 1)
-        console.log("hello")
-    }
+const navigation = useNavigation()
+const addStep = () => {
+if (step < 3) {
+setStep(step + 1)
+console.log("hello")
 }
-const minusStep=()=>{
-    if(step > 1){
-        setStep(step - 1)
-    }
+if (step == 3) {
+navigation.navigate('welcome')
+}
+}
+const minusStep = () => {
+if (step > 1) {
+setStep(step - 1)
+}
+
 }
 
 
 
 return (
-<>
-<View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }} >
+<View style={styles.welcome}>
+
+<View style={{  flexDirection: "row", justifyContent: "space-between",width:'100%',flex:1,  }} >
 <Text style={styles.num}><Text style={{ color: "black" }} >{step}</Text>/3</Text>
 <Text style={{ ...styles.num, color: "black" }} >Skip</Text>
 </View>
@@ -29,35 +35,35 @@ return (
 <ScrollView contentContainerStyle={{
 justifyContent: "space-between",
 alignItems: "center", display: "flex",
- 
+
 height: "100%",
 width: "100%",
 
 }}  >
 
-<View style={{marginTop:110,height:426,display:"flex",justifyContent:"flex-end",alignItems:"center"}}>
-    {
-        step === 1 ?
+<View style={{ marginTop: 110, height: 426, display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+{
+step === 1 ?
 <Image
-  width={300}
-  height={300}
-  source={require(`../../assets/home2.png`)}
+width={300}
+height={300}
+source={require(`../../assets/home2.png`)}
 />
 :
-step === 2?
+step === 2 ?
 <Image
-  width={300}
-  height={300}
-  source={require(`../../assets/home3.png`)}
-  style={{marginBottom:25}}
+width={300}
+height={300}
+source={require(`../../assets/home3.png`)}
+style={{ marginBottom: 25 }}
 />
 :
 <Image
-  width={300}
-  height={300}
-  source={require(`../../assets/home4.png`)}
+width={300}
+height={300}
+source={require(`../../assets/home4.png`)}
 />
-    }
+}
 
 
 <View style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
@@ -69,9 +75,9 @@ step === 2?
 </View>
 
 
- 
+
 <View style={{ ...styles.next }}>
-    
+
 <Pressable onPress={minusStep} style={{
 width: 44,
 height: 22.8, display: "flex", alignItems: "center"
@@ -90,20 +96,20 @@ Prev</Text>
 
 
 <View >
-    {
-        step ===1 ?
+{
+step === 1 ?
 <Image source={require('../../assets/home2circle.png')} />
 :
-step ===2 ?
+step === 2 ?
 <Image source={require('../../assets/home3circle.png')} />
 :
 <Image source={require('../../assets/home4circle.png')} />
 
-    }
+}
 
 </View>
 
-<Pressable onPress={addStep}  style={{
+<Pressable onPress={addStep} style={{
 width: 44,
 height: 22.8, display: "flex", alignItems: "center"
 }}>
@@ -114,16 +120,16 @@ fontFamily: 'mon',
 fontSize: 18,
 fontStyle: 'normal',
 fontWeight: 600,
-}}>Next</Text>
+}}>{step==3 ? "Explore" : "Next"}</Text>
 </Pressable>
 
 </View>
 
- 
+
 
 
 </ScrollView>
-</>
+</View>
 )
 }
 
@@ -164,10 +170,18 @@ gap: 74,
 display: "flex",
 flexDirection: "row",
 justifyContent: "space-between",
-paddingBottom:22,
+paddingBottom: 22,
 alignItems: "center",
 
-}
+},
+welcome: {
+flex: 1,
+backgroundColor: '#fff',
+height: "100%",
+width: "100%",
+
+},
 });
 
 export default Home2
+

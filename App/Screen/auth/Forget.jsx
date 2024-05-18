@@ -1,8 +1,9 @@
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 
 
 const Forget = () => {
 return (
+    <ScrollView style={styles.containerView}>
 <View style={{ height: "100%", width: "100%", paddingLeft: 15, paddingRight: 15 }}>
 <View style={{
 width: 189,
@@ -62,7 +63,7 @@ marginRight: 11
 color: '#676767',
 flex: 1
 
-}} placeholder={'Enter your email address'} />
+}} placeholder={'Enter PIN'} />
 
 
 
@@ -86,7 +87,7 @@ fontSize: 12,
 fontWeight: 500,
 fontStyle: 'normal',
 maxWidth:250
-}}>* We will send you a message to set or reset your new password</Text></View>
+}}>* We will send you a PIN to set or reset your new password</Text></View>
 
 </View>
 
@@ -126,6 +127,7 @@ fontWeight: 600,
 
 
 </View>
+</ScrollView>
 )
 }
 
@@ -138,6 +140,14 @@ display: 'flex',
 alignItems: 'center',
 gap: 20
 },
+containerView: {
+    flex: 1,
+    backgroundColor: '#fff',
+    height: "100%",
+    width: "100%",
+    paddingTop: 30,
+    paddingHorizontal: 17
+  },
 image: {
 borderRadius: 333,
 padding: 15,

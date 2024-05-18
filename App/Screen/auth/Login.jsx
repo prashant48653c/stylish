@@ -5,13 +5,18 @@ import { Button } from "react-native-paper"
 
 const Login = () => {
     const navigation=useNavigation()
+
+    const handleLogin=()=>{
+        navigation.navigate('feed')
+    }
+
 return (
 
     <ScrollView style={styles.containerView}>
 <View style={{ height: "100%", width: "100%", paddingLeft: 15, paddingRight: 15 }}>
 <View style={{
-width: 189,
-height: 83,
+ 
+ 
 flexShrink: 0,
 marginTop: 9,
 
@@ -23,7 +28,7 @@ fontSize: 36,
 fontStyle: 'normal',
 fontWeight: 700,
 lineHeight: 43,
-textAlign: "justify"
+ 
 }}>Welcome Back!</Text>
 </View>
 
@@ -104,7 +109,7 @@ position: "absolute",
 top: 59,
 right: 1
 }} >
-
+<TouchableOpacity onPress={()=>navigation.navigate('forget')} >
 <Text style={{
 color: '#F83758',
 textAlign: 'center',
@@ -112,14 +117,16 @@ fontFamily: 'mon',
 fontSize: 12,
 fontWeight: 500,
 fontStyle: 'normal',
-}}>Forgot Password?</Text></View>
+}}>Forgot Password?</Text>
+</TouchableOpacity>
+</View>
 
 </View>
 
 
 
 </View>
-<TouchableOpacity style={{
+<TouchableOpacity onPress={handleLogin} style={{
 display: 'flex',
 maxWidth: "100%",
 height: 53,
@@ -185,7 +192,25 @@ height: 24,
 
 </View>
 
-<Text style={styles.lastText} >Create An Account <Text style={{color: "#F83758",paddingRight:5 }}> <Button onPress={()=>navigation.navigate('create')} title='Sign Up' /></Text> </Text>
+<View>
+
+
+<View style={styles.lastText}> 
+ <Text style={{fontSize:14}} >Create an Account</Text>
+
+ <TouchableOpacity style={{alignItems:"center",}} onPress={()=>navigation.navigate('create')}>
+ <Text style={{color: "red",paddingRight:5,alignItems:'center',fontWeight:600,textAlign:'center' }} >SignUp</Text>
+ 
+ </TouchableOpacity>
+ 
+ 
+ 
+ 
+ 
+ </View>
+ </View>
+
+
 </View>
 </View>
 
@@ -224,7 +249,11 @@ borderColor: '#F83758',
 lastText: {
 fontFamily: 'mon',
 fontSize: 14,
-marginTop:29,
-color: '#575757'
+ flexDirection:'row',
+ alignItems:'center',
+color: '#575757',
+gap:4,
+marginTop:20,
+justifyContent:'center'
 }
 });

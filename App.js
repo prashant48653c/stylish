@@ -16,6 +16,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PaperProvider } from 'react-native-paper';
 import { name as appName } from './app.json';
+import { useEffect, useState } from 'react';
 
 
 
@@ -24,29 +25,37 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     'mon': require('./App/font/Montserrat-Regular.ttf'),
     'monbold': require('./App/font/Montserrat-Bold.ttf'),
-
-
-
-
-
+ 
   });
+  
+  const [ splash,setSplash]=useState(true)
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setSplash(false);
+    }, 3000); // 3 seconds
+    return ()=> clearTimeout(timer)
+  },[])
+
+  if(splash){
+    return <Home1/>
+  }
   const Stack = createNativeStackNavigator();
   return (
     <PaperProvider>
       
     <NavigationContainer>
        <Stack.Navigator   screenOptions={{headerShown: false}} >
-       <Stack.Screen name="success" component={Success} />
 
        
        
   
         
-        <Stack.Screen name="Home1" component={Home1} />
+        
         <Stack.Screen name="Home2" component={Home2} />
   <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="create" component={Create} />
         <Stack.Screen name="forget" component={Forget} />
+        <Stack.Screen name="success" component={Success} />
 
  
  
