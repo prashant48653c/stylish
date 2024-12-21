@@ -1,12 +1,25 @@
 import { useNavigation } from "@react-navigation/native"
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
-import { Button } from "react-native-paper"
-
+ 
+ 
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useState } from "react"
+import { auth } from "../../config/config"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 const Login = () => {
     const navigation=useNavigation()
-
-    const handleLogin=()=>{
+    const [email,setEmail]=useState([]);
+    const [pass,setPass]=useState([]);
+    const handleLogin=async ()=>{
+        console.log(email,pass)
+      await signInWithEmailAndPassword(auth,email,pass).then((data)=>{
+            console.log(data)
+            const stringData= JSON.stringify(data)
+             AsyncStorage.setItem('@userData',stringData)
+        
+           
+        })
         navigation.navigate('feed')
     }
 
@@ -57,7 +70,7 @@ width: 24,
 height: 24,
 marginRight: 3
 }} source={require('../../../assets/icons/User.png')} />
-<TextInput style={{ color: '#676767', }} placeholder={'Username or Email'} />
+<TextInput onChangeText={(e)=>setEmail(e)} style={{ color: '#676767', }} placeholder={'Username or Email'} />
 
 </View>
 
@@ -87,7 +100,7 @@ marginRight: 11
 }} source={require('../../../assets/icons/lock.png')} />
 
 
-<TextInput style={{
+<TextInput onChangeText={(e)=>setPass(e)} style={{
 color: '#676767',
 flex: 1
 

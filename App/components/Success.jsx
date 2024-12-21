@@ -8,7 +8,7 @@ return (
 <View style={{ width: '100%', height: "100%", flexDirection: 'row', justifyContent: "center", alignItems: 'center' }} >
 <View style={{ width: "90%", height: 400, backgroundColor: "#FC8EAC", borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
 <Text style={{ fontSize: 29, marginBottom: 20, color: 'white', fontWeight: 800, textAlign: 'center' }} >Payment done successfully</Text>
-<Button title="Back to feed" onPress={() => navigation.navigate('login')} />
+<Button title="Back to feed" onPress={() => navigation.navigate('feed')} />
 </View>
 </View>
 )

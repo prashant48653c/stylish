@@ -20,7 +20,7 @@ const navigation=useNavigation()
       };
     
       const handleBuyNowPress = () => {
-        // Logic for buying item now
+         
         navigation.navigate('check')
         console.log('Buying item now');
       };

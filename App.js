@@ -17,6 +17,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PaperProvider } from 'react-native-paper';
 import { name as appName } from './app.json';
 import { useEffect, useState } from 'react';
+import {Map} from './App/components/map';
+import { BottomTab } from './App/components/BottomTab';
+
+
+
 
 
 
@@ -25,77 +30,51 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     'mon': require('./App/font/Montserrat-Regular.ttf'),
     'monbold': require('./App/font/Montserrat-Bold.ttf'),
- 
   });
-  
-  const [ splash,setSplash]=useState(true)
-  useEffect(()=>{
+
+ 
+const Stack = createNativeStackNavigator();
+  const [splash, setSplash] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setSplash(false);
-    }, 3000); // 3 seconds
-    return ()=> clearTimeout(timer)
-  },[])
+    }, 1000);  
+    return () => clearTimeout(timer);
+  }, [isLoggedIn]);
 
-  if(splash){
-    return <Home1/>
+  if (splash) {
+    return <Home1 />;
   }
-  const Stack = createNativeStackNavigator();
+
+
+  const AuthStack = () => (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="welcome" component={Welcome} />
+      <Stack.Screen name="login" component={Login} />
+      <Stack.Screen name="forget" component={Forget} />
+
+      <Stack.Screen name="create" component={Create} />
+       
+
+    </Stack.Navigator>
+  );
+  
+  const MainStack = () => (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="BottomTab" component={BottomTab} />
+    </Stack.Navigator>
+  );
+
   return (
     <PaperProvider>
-      
-    <NavigationContainer>
-       <Stack.Navigator   screenOptions={{headerShown: false}} >
-
-       
-       
-  
-        
-        
-        <Stack.Screen name="Home2" component={Home2} />
-  <Stack.Screen name="login" component={Login} />
-        <Stack.Screen name="create" component={Create} />
-        <Stack.Screen name="forget" component={Forget} />
-        <Stack.Screen name="success" component={Success} />
-
- 
- 
-       
-        <Stack.Screen name="welcome" component={Welcome} />
-        <Stack.Screen name="feed" component={Feed} />
-        <Stack.Screen name="wish" component={Wish} />
-        <Stack.Screen name="check" component={Checkout} />
-        <Stack.Screen name="detail" component={Detail} />
-
-
-
-      </Stack.Navigator>
-    <SafeAreaView>
-
-    {/* Authentication  */}
-      
-
-      {/* Welcome Section */}
-      {/* <View style={styles.welcome} >
-        <Welcome />
-        <StatusBar style="light" />
-      </View>  
-
-      {/* Feed section */}
-      
-      <View >
-        {/* <Feed /> */}
-        {/* <Wish /> */}
-        {/* <Checkout/> */}
-        {/* <Success/> */}
-        {/* <Detail/> */}
-      </View>
-
- 
-      <StatusBar  backgroundColor='white' style='dark' />
-     
-    </SafeAreaView>
-
-    </NavigationContainer>
+      <NavigationContainer>
+        <SafeAreaView style={{ flex: 1 }}>
+          <StatusBar backgroundColor="white" style="dark" />
+          {isLoggedIn ? <MainStack /> : <AuthStack />}
+        </SafeAreaView>
+      </NavigationContainer>
     </PaperProvider>
   );
 }

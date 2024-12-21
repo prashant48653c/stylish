@@ -3,46 +3,25 @@ import React from 'react'
 import ProductCard from './ProductCard'
 import shoeImg from '../../assets/feed/shoe.png'
 import addidas from '../../assets/feed/image 18.png'
-import cloth from '../../assets/feed/cloth.png'
-import cloth1 from '../../assets/feed/image 18(1).png'
+import cloth from '../../assets/feed/image 18.png'
+import cloth1 from '../../assets/feed/kurta.png'
 
 
 
 
 let datas = [
 {
-pName: 'Women Printed Kurta',
+pName: 'Addidas shoe',
 pDesc: 'Oriented from pure silk with zero carbon',
 price: '$175',
 former: '$200',
 dis: "15%Off",
 img: shoeImg
-},
-// {
-// pName: 'HBK Training Shoe',
-// pDesc: 'Long lasting trekking shoe for mens',
-// price: '$145',
-// former: '$180',
-// dis: "25%Off",
-// img: cloth
-// },
-{
-pName: 'Addidas Shoe',
-pDesc: 'Long lasting trekking shoe for mens',
-price: '$145',
-former: '$180',
-dis: "25%Off",
-img: addidas
-},{
-pName: 'Addidas Shoe',
-pDesc: 'Long lasting trekking shoe for mens',
-price: '$145',
-former: '$180',
-dis: "25%Off",
-img: cloth
-},{
-pName: 'Addidas Shoe',
-pDesc: 'Long lasting trekking shoe for mens',
+}
+ 
+ ,{
+pName: 'Kurta Nylon',
+pDesc: 'Long lasting kurta for womens',
 price: '$145',
 former: '$180',
 dis: "25%Off",
@@ -80,12 +59,15 @@ img: shoeImg
 ]
 const WishContainer = () => {
 return (
-<View style={{ height:"100%", flexDirection:'row',display:'flex',flexShrink:0,flexWrap:'wrap',flex:1,justifyContent:'center',alignItems:"center" }} >
+<View style={{   flexDirection:'row',  flexWrap:'wrap',justifyContent:'center',alignItems:"center",  }} >
 {
 datas.map((item,i)=>{
 return(
 <View key={i} style={styles.container} >
-<Image style={styles.image} source={item.img} />
+  
+    <Image style={styles.image} source={item.img} />
+
+    
 
 
 <View style={styles.textCon} >
@@ -94,7 +76,7 @@ return(
 <Text style={styles.price}>{item.price}</Text>
 <View style={{flexDirection:'row',alignItems:'flex-end',gap:3}} >
 <Text style={{textDecorationLine: 'line-through',fontSize:14,color:'grey',fontFamily:'mon'}} >{item.former} </Text>
-<Text style={{   textDecorationLine: 'none',fontSize:14,color:'red',fontFamily:'mon'}}>{item.dis}</Text>
+<Text style={{ textDecorationLine: 'none',fontSize:14,color:'red',fontFamily:'mon'}}>{item.dis}</Text>
 </View>
 
 </View>
@@ -126,10 +108,12 @@ borderRadius:7,
 marginRight:10,
 marginBottom:16,
 paddingBottom:4,
+height:'fit-content',
  
  
 borderBottomWidth:2,
-borderColor:'#7d7b7a'
+borderColor:'#7d7b7a',
+ 
 
 
 },

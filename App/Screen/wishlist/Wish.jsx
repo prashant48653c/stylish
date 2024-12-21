@@ -9,7 +9,7 @@ import WishContainer from '../../components/WishContainer'
 
 const Wish = () => {
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal:16,backgroundColor:'#F9F9F9',height:'100%'}}>
+    <ScrollView showsVerticalScrollIndicator={true} style={{marginHorizontal:16,backgroundColor:'#F9F9F9'}}>
  <Nav/>
  <Search/>
  <ItemCount  text={"45,000+ Items"} /> 

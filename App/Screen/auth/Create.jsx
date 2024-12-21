@@ -1,6 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
+import { signInWithPopup } from "firebase/auth";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 import { Button } from "react-native-paper";
+import { auth, Provider } from "../../config/config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
  
 
 
@@ -9,6 +12,15 @@ const Create = () => {
   const handleSignUp=()=>{
     navigation.navigate('feed')
   }
+
+  const handleGoogleClick= async ()=>{
+    const data = await signInWithPopup(auth, Provider);
+    console.log(data);
+
+    const newdata = JSON.stringify(data);
+    await AsyncStorage.setItem("@userData", newdata);
+  }
+
 return (
     <ScrollView  style={styles.containerView} >
 <View style={{ height: "100%", width: "100%", paddingLeft: 15, paddingRight: 15 }}>
@@ -215,7 +227,7 @@ fontWeight: 600,
 <View>
 <View style={{ display: "flex", flexDirection: 'row', gap: 10, justifyContent: "center",marginTop:20 }}>
 
-<View style={styles.image}>
+<TouchableOpacity onPress={handleGoogleClick} style={styles.image}>
 <Image style={{
 width: 24,
 height: 24,
@@ -223,7 +235,7 @@ height: 24,
 
 
 }} source={require('../../../assets/icons/google 1.png')} />
-</View>
+</TouchableOpacity>
 
 <View style={styles.image}>
 <Image style={{

@@ -8,26 +8,30 @@ import CheckItem from '../../components/CheckItem'
 
 export default function Checkout() {
   const navigation=useNavigation()
+  const navMap=()=>{
+    console.log("Navigating to map")
+    navigation.navigate('map')
+  }
   let DATA=[
     {
       img:'',
       title:"Women's dress",
 
-      price:'$122',
+      price:'122',
       size:'3V',
-      count:1
+      count:2
     },
     {
       img:'',
       title:"Women's Pant",
 
-      price:'$122',
+      price:'122',
       size:'3V',
-      count:1
+      count:4
     },{
       img:'',
       title:"Shoe dress",
-      price:'$122',
+      price:'122',
       size:'3V',
       count:1
     },
@@ -46,11 +50,14 @@ export default function Checkout() {
  <Nav/>
       <Text style={{fontSize:20,marginBottom:16}} >Your List</Text>
  
+ <View>
  <FlatList keyExtractor={item =>item.title} data={DATA} renderItem={(item)=>{
   return(
-    <CheckItem item={item} />
+    <CheckItem item={item.item} />
   )
  }} />
+ </View>
+
  <Text style={{fontSize:20,marginTop:16}} >Your Total: $3500</Text>
 
 
@@ -68,24 +75,45 @@ display: "flex",
 flexDirection: "row",
 alignItems: "center",
 
-paddingHorizontal: 11,
+
+paddingHorizontal: 15,
 paddingVertical: 15,
+position: "relative"
 
 
 }} >
-
-
 <Image style={{
-width: 24,
-height: 24,
-marginRight: 3
-}} source={require('../../../assets/icons/User.png')} />
-<TextInput style={{ color: '#676767', }} placeholder={'Your address'} />
+width: 16,
+height: 20,
+marginRight: 11
+}} source={require('../../../assets/icons/lock.png')} />
+
+
+<TextInput onChangeText={(e)=>setPass(e)} style={{
+color: '#676767',
+flex: 1
+
+}} placeholder={'Delivery address'} />
+
+
+
+<TouchableOpacity onPress={navMap} style={{ alignContent: "flex-end" }}>
+<Image style={{
+width: 20,
+height: 20,
+
+}} source={require('../../../assets/icons/eye.png')} />
+
+</TouchableOpacity>
+
+ 
 
 </View>
 
+
+
 <Text style={{fontSize:17,marginTop:16}} >Password:</Text>
- <View style={{
+<View style={{
 maxWidth: "100%",
 height: 55,
 flexShrink: 0,
@@ -97,21 +125,48 @@ display: "flex",
 flexDirection: "row",
 alignItems: "center",
 
-paddingHorizontal: 11,
+
+paddingHorizontal: 15,
 paddingVertical: 15,
+position: "relative"
 
 
 }} >
-
-
 <Image style={{
-width: 24,
-height: 24,
-marginRight: 3
-}} source={require('../../../assets/icons/User.png')} />
-<TextInput style={{ color: '#676767', }} placeholder={'Password'} />
+width: 16,
+height: 20,
+marginRight: 11
+}} source={require('../../../assets/icons/lock.png')} />
+
+
+<TextInput onChangeText={(e)=>setPass(e)} style={{
+color: '#676767',
+flex: 1
+
+}} placeholder={'Password'} />
+
+
+
+<View style={{ alignContent: "flex-end" }}>
+<Image style={{
+width: 20,
+height: 20,
+
+}} source={require('../../../assets/icons/eye.png')} />
 
 </View>
+
+<View style={{
+position: "absolute",
+top: 59,
+right: 1
+}} >
+ 
+</View>
+
+</View>
+
+
 
 <Text style={{fontSize:17,marginTop:16}} >Phone Number:</Text>
  <View style={{
